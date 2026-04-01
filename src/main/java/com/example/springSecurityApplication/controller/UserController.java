@@ -10,7 +10,7 @@ import com.example.springSecurityApplication.model.Users;
 import com.example.springSecurityApplication.service.UserService;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private UserService service;
@@ -18,6 +18,11 @@ public class UserController {
 	@PostMapping("/register")
 	public Users register(@RequestBody Users user) {
 		return service.register(user);
+	}
+	
+	@PostMapping("/login")
+	public String login(@RequestBody Users user) {
+		return "success";
 	}
 
 }
